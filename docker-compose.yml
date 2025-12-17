@@ -8,5 +8,13 @@ services:
       - openwebui-data:/app/backend/data
     restart: unless-stopped
 
+  whisper-audio-service:
+    build:
+      context: ./audio-service
+    container_name: whisper-audio-service
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
 volumes:
   openwebui-data:
