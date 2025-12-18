@@ -19,3 +19,7 @@ venv/
 # Data
 data/
 uploads/
+
+# Spectogram images
+spectogram.png
+spectogram.out

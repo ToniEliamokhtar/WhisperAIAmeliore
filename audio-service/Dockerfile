@@ -1,6 +1,6 @@
 FROM python:3.10-slim
 
-# ffmpeg est requis par whisper (pour lire mp3/mp4/etc.)
+# ffmpeg est requis par whisper (pour lire mp3/mp4/etc.), je l'avais expliqué sur hugo
 RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
