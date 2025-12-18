@@ -6,7 +6,11 @@ services:
       - "3000:8080"
     volumes:
       - openwebui-data:/app/backend/data
+      - ./openwebui/tools:/app/backend/tools
+      - ./samples:/samples:ro
     restart: unless-stopped
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
 
   whisper-audio-service:
     build:
@@ -16,5 +20,15 @@ services:
       - "8000:8000"
     restart: unless-stopped
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    restart: unless-stopped
+
 volumes:
   openwebui-data:
+  ollama:
